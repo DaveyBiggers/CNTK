@@ -8,22 +8,24 @@ CPU info:
 + '[' Windows_NT == Windows_NT ']'
 ++ cygpath -au 'C:\CNTKTestData'
 + TEST_DATA_DIR=/cygdrive/c/CNTKTestData
-+ LocalTestDir=/tmp/cntk-test-20170828160030.522219/EvalClientTests_CNTKLibraryCPPEvalExamplesTest@release_cpu/TestData
-+ mkdir /tmp/cntk-test-20170828160030.522219/EvalClientTests_CNTKLibraryCPPEvalExamplesTest@release_cpu/TestData
++ LocalTestDir=/tmp/cntk-test-20170829141349.505640/EvalClientTests_CNTKLibraryCPPEvalExamplesTest@release_cpu/TestData
++ mkdir /tmp/cntk-test-20170829141349.505640/EvalClientTests_CNTKLibraryCPPEvalExamplesTest@release_cpu/TestData
 + '[' cpu == cpu ']'
 + export CUDA_VISIBLE_DEVICES=-1
 + CUDA_VISIBLE_DEVICES=-1
 + echo Use pre-trained eval models in 'C:\CNTKTestData' for cpp eval tests.
 Use pre-trained eval models in C:\CNTKTestData for cpp eval tests.
-+ cp /cygdrive/c/CNTKTestData/PreTrainedModels/EvalModels/01_OneHidden.model /tmp/cntk-test-20170828160030.522219/EvalClientTests_CNTKLibraryCPPEvalExamplesTest@release_cpu/TestData/01_OneHidden.model
-+ cp /cygdrive/c/CNTKTestData/PreTrainedModels/EvalModels/resnet20_cifar10_python.dnn /tmp/cntk-test-20170828160030.522219/EvalClientTests_CNTKLibraryCPPEvalExamplesTest@release_cpu/TestData/resnet20.dnn
-+ cp /cygdrive/c/CNTKTestData/PreTrainedModels/EvalModels/atis.dnn /tmp/cntk-test-20170828160030.522219/EvalClientTests_CNTKLibraryCPPEvalExamplesTest@release_cpu/TestData/atis.dnn
-+ cp /cygdrive/c/repos/cntk/Tests/EndToEndTests/../../Examples/LanguageUnderstanding/ATIS/BrainScript/query.wl /tmp/cntk-test-20170828160030.522219/EvalClientTests_CNTKLibraryCPPEvalExamplesTest@release_cpu/TestData/query.wl
-+ cp /cygdrive/c/repos/cntk/Tests/EndToEndTests/../../Examples/LanguageUnderstanding/ATIS/BrainScript/slots.wl /tmp/cntk-test-20170828160030.522219/EvalClientTests_CNTKLibraryCPPEvalExamplesTest@release_cpu/TestData/slots.wl
-+ pushd /tmp/cntk-test-20170828160030.522219/EvalClientTests_CNTKLibraryCPPEvalExamplesTest@release_cpu/TestData
-/tmp/cntk-test-20170828160030.522219/EvalClientTests_CNTKLibraryCPPEvalExamplesTest@release_cpu/TestData /cygdrive/c/repos/cntk/Tests/EndToEndTests/EvalClientTests/CNTKLibraryCPPEvalExamplesTest
++ cp /cygdrive/c/CNTKTestData/PreTrainedModels/EvalModels/01_OneHidden.model /tmp/cntk-test-20170829141349.505640/EvalClientTests_CNTKLibraryCPPEvalExamplesTest@release_cpu/TestData/01_OneHidden.model
++ cp /cygdrive/c/CNTKTestData/PreTrainedModels/EvalModels/resnet20_cifar10_python.dnn /tmp/cntk-test-20170829141349.505640/EvalClientTests_CNTKLibraryCPPEvalExamplesTest@release_cpu/TestData/resnet20.dnn
++ cp /cygdrive/c/CNTKTestData/PreTrainedModels/EvalModels/atis.dnn /tmp/cntk-test-20170829141349.505640/EvalClientTests_CNTKLibraryCPPEvalExamplesTest@release_cpu/TestData/atis.dnn
++ cp /cygdrive/c/repos/cntk/Tests/EndToEndTests/../../Examples/LanguageUnderstanding/ATIS/BrainScript/query.wl /tmp/cntk-test-20170829141349.505640/EvalClientTests_CNTKLibraryCPPEvalExamplesTest@release_cpu/TestData/query.wl
++ cp /cygdrive/c/repos/cntk/Tests/EndToEndTests/../../Examples/LanguageUnderstanding/ATIS/BrainScript/slots.wl /tmp/cntk-test-20170829141349.505640/EvalClientTests_CNTKLibraryCPPEvalExamplesTest@release_cpu/TestData/slots.wl
++ pushd /tmp/cntk-test-20170829141349.505640/EvalClientTests_CNTKLibraryCPPEvalExamplesTest@release_cpu/TestData
+/tmp/cntk-test-20170829141349.505640/EvalClientTests_CNTKLibraryCPPEvalExamplesTest@release_cpu/TestData /cygdrive/c/repos/cntk/Tests/EndToEndTests/EvalClientTests/CNTKLibraryCPPEvalExamplesTest
 + '[' Windows_NT == Windows_NT ']'
 + /cygdrive/c/repos/cntk/x64/release_CpuOnly/CNTKLibraryCPPEvalExamplesTest.exe
+
+##### Test CPPEval samples on CPU device. #####
 
 ===== Evaluate single sample using dense format.
 The batch contains 1 sequences.
@@ -128,6 +130,8 @@ Sequence 1:
             EOS ---- O
 
 
+##### Test MultiThreadsEvaluation CPU device. #####
+
 ##### Run evaluation on CPU device with 2 parallel evaluation thread(s). #####
 
 ##### Run evaluation using new function on CPU. #####
@@ -189,6 +193,7 @@ Iteration:3, Sample 1:
     8.717767 -7.650074 1.461809 10.807857 1.261626 -4.334464 7.604057 -16.942709 -0.579220 2.419601 ...
 Iteration:3, Sample 2:
     8.721835 -7.648919 1.460829 10.811454 1.260108 -4.334237 7.596704 -16.946077 -0.579707 2.423072 ...
+thread 0 joined.
 Evaluation result:
 Iteration:3, Sample 0:
     8.721188 -7.648074 1.462249 10.810592 1.259941 -4.337050 7.599345 -16.945051 -0.579847 2.421400 ...
@@ -196,7 +201,6 @@ Iteration:3, Sample 1:
     8.717767 -7.650074 1.461809 10.807857 1.261626 -4.334464 7.604057 -16.942709 -0.579220 2.419601 ...
 Iteration:3, Sample 2:
     8.721835 -7.648919 1.460829 10.811454 1.260108 -4.334237 7.596704 -16.946077 -0.579707 2.423072 ...
-thread 0 joined.
 thread 1 joined.
 
 ##### Run evaluation using pre-trained model on CPU. #####
@@ -218,24 +222,24 @@ Output:-4.195490 -8.739223 -3.749011 6.490619 -7.863690 12.338903 -0.816265 -2.7
 Evaluation result:
 Iteration:0, Sample 0:
 Output:-1.631962 -7.887448 1.684969 8.685357 -7.478977 9.775093 -6.652484 0.383906 2.626894 -2.976902 
-Evaluation result:
-Iteration:1, Sample 0:
 Iteration:0, Sample 1:
 Output:-2.957949 -7.711860 -2.918236 5.793887 -8.211493 11.805773 -2.283456 -2.504362 3.462196 0.227575 
 Iteration:0, Sample 2:
-Output:-4.195490 -8.739223 -3.749011 6.490619 -7.863690 12.338903 -0.816265 -2.759350 3.292670 1.272150 Output:-1.631962 
--7.887448 1.684969 8.685357 -7.478977 9.775093 -6.652484 0.383906 2.626894 -2.976902 
-Iteration:1, Sample 1:
-Output:-2.957949 -7.711860 -2.918236 5.793887 -8.211493 11.805773 -2.283456 -2.504362 3.462196 0.227575 
-Iteration:1, Sample 2:
 Output:-4.195490 -8.739223 -3.749011 6.490619 -7.863690 12.338903 -0.816265 -2.759350 3.292670 1.272150 
 Evaluation result:
 Iteration:1, Sample 0:
 Output:-1.631962 -7.887448 1.684969 8.685357 -7.478977 9.775093 -6.652484 0.383906 2.626894 -2.976902 
 Iteration:1, Sample 1:
+Output:-2.957949 -7.711860 -2.918236 5.793887 -8.211493 11.805773 -2.283456 -2.504362 3.462196 Evaluation result:
+Iteration:1, Sample 0:
+Output:-1.631962 -7.887448 1.684969 8.685357 -7.478977 9.775093 -6.652484 0.383906 2.626894 -2.976902 
+Iteration:1, Sample 1:
 Output:-2.957949 -7.711860 -2.918236 5.793887 -8.211493 11.805773 -2.283456 -2.504362 3.462196 0.227575 
+0.227575 
 Iteration:1, Sample 2:
-Output:-4.195490 -8.739223 -3.749011 6.490619 -7.863690 12.338903 -0.816265 -2.759350 3.292670 1.272150 
+Output:-4.195490 -8.739223 -3.749011 6.490619 -7.863690 12.338903 -0.816265 -2.759350 3.292670 Iteration:1, Sample 2:
+Output:1.272150 
+-4.195490 -8.739223 -3.749011 6.490619 -7.863690 12.338903 -0.816265 -2.759350 3.292670 1.272150 
 Evaluation result:
 Iteration:2, Sample 0:
 Output:-1.631962 -7.887448 1.684969 8.685357 -7.478977 9.775093 -6.652484 0.383906 2.626894 -2.976902 
@@ -249,6 +253,13 @@ Output:-1.631962 -7.887448 1.684969 8.685357 -7.478977 9.775093 -6.652484 0.3839
 Iteration:2, Sample 1:
 Output:-2.957949 -7.711860 -2.918236 5.793887 -8.211493 11.805773 -2.283456 -2.504362 3.462196 0.227575 
 Iteration:2, Sample 2:
+Output:-4.195490 -8.739223 -3.749011 6.490619 -7.863690 12.338903 -0.816265 -2.759350 3.292670 1.272150 
+Evaluation result:
+Iteration:3, Sample 0:
+Output:-1.631962 -7.887448 1.684969 8.685357 -7.478977 9.775093 -6.652484 0.383906 2.626894 -2.976902 
+Iteration:3, Sample 1:
+Output:-2.957949 -7.711860 -2.918236 5.793887 -8.211493 11.805773 -2.283456 -2.504362 3.462196 0.227575 
+Iteration:3, Sample 2:
 Output:-4.195490 -8.739223 -3.749011 6.490619 -7.863690 12.338903 -0.816265 -2.759350 3.292670 1.272150 
 Evaluation result:
 Iteration:3, Sample 0:
@@ -258,21 +269,10 @@ Output:-2.957949 -7.711860 -2.918236 5.793887 -8.211493 11.805773 -2.283456 -2.5
 Iteration:3, Sample 2:
 Output:-4.195490 -8.739223 -3.749011 6.490619 -7.863690 12.338903 -0.816265 -2.759350 3.292670 1.272150 
 thread 0 joined.
-Evaluation result:
-Iteration:3, Sample 0:
-Output:-1.631962 -7.887448 1.684969 8.685357 -7.478977 9.775093 -6.652484 0.383906 2.626894 -2.976902 
-Iteration:3, Sample 1:
-Output:-2.957949 -7.711860 -2.918236 5.793887 -8.211493 11.805773 -2.283456 -2.504362 3.462196 0.227575 
-Iteration:3, Sample 2:
-Output:-4.195490 -8.739223 -3.749011 6.490619 -7.863690 12.338903 -0.816265 -2.759350 3.292670 1.272150 
 thread 1 joined.
-
-##### Test CPPEval samples on CPU device. #####
-
-##### Test MultiThreadsEvaluation CPU device. #####
 Evaluation complete.
 + ExitCode=0
 + popd
 /cygdrive/c/repos/cntk/Tests/EndToEndTests/EvalClientTests/CNTKLibraryCPPEvalExamplesTest
-+ rm -rf /tmp/cntk-test-20170828160030.522219/EvalClientTests_CNTKLibraryCPPEvalExamplesTest@release_cpu/TestData
++ rm -rf /tmp/cntk-test-20170829141349.505640/EvalClientTests_CNTKLibraryCPPEvalExamplesTest@release_cpu/TestData
 + exit 0
