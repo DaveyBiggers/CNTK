@@ -29,7 +29,7 @@ int main()
 
     if (ShouldRunOnGpu())
     {
-        fprintf(stderr, "\n##### Test CPPEval samples on GPU device. #####\n");
+        printf("\n##### Test CPPEval samples on GPU device. #####\n");
         EvaluationSingleSampleUsingDense(resnet20Model, CNTK::DeviceDescriptor::GPUDevice(0));
         EvaluationBatchUsingDense(resnet20Model, CNTK::DeviceDescriptor::GPUDevice(0));
         ParallelEvaluationExample(resnet20Model, CNTK::DeviceDescriptor::GPUDevice(0));
@@ -37,13 +37,13 @@ int main()
         EvaluationBatchOfSequencesUsingOneHot(atisModel, vocabularyFile, labelFile, CNTK::DeviceDescriptor::GPUDevice(0));
         EvaluationSingleSequenceUsingSparse(atisModel, vocabularyFile, labelFile, CNTK::DeviceDescriptor::GPUDevice(0));
 
-        fprintf(stderr, "\n##### Test MultiThreadsEvaluation on GPU device. #####\n");
+        printf("\n##### Test MultiThreadsEvaluation on GPU device. #####\n");
         MultiThreadsEvaluationTests(oneHiddenModel, true);
     }
 
     if (ShouldRunOnCpu())
     {
-        fprintf(stderr, "\n##### Test CPPEval samples on CPU device. #####\n");
+        printf("\n##### Test CPPEval samples on CPU device. #####\n");
         EvaluationSingleSampleUsingDense(resnet20Model, CNTK::DeviceDescriptor::CPUDevice());
         EvaluationBatchUsingDense(resnet20Model, CNTK::DeviceDescriptor::CPUDevice());
         ParallelEvaluationExample(resnet20Model, CNTK::DeviceDescriptor::CPUDevice());
@@ -51,10 +51,10 @@ int main()
         EvaluationBatchOfSequencesUsingOneHot(atisModel, vocabularyFile, labelFile, CNTK::DeviceDescriptor::CPUDevice());
         EvaluationSingleSequenceUsingSparse(atisModel, vocabularyFile, labelFile, CNTK::DeviceDescriptor::CPUDevice());
 
-        fprintf(stderr, "\n##### Test MultiThreadsEvaluation CPU device. #####\n");
+        printf("\n##### Test MultiThreadsEvaluation CPU device. #####\n");
         MultiThreadsEvaluationTests(oneHiddenModel, false);
     }
 
-    fprintf(stderr, "Evaluation complete.\n");
-    fflush(stderr);
+    printf("Evaluation complete.\n");
+    fflush(stdout);
 }
